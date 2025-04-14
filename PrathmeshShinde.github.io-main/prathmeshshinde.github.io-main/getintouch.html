@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get in Touch</title>
+  <link href="https://fonts.googleapis.com/css?family=Abel|Vibur|Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      font-family: 'Abel', sans-serif;
+      opacity: 0.95;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 10px;
+      position: relative;
+      color: #fff; /* White text color for readability */
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 10px;
+      padding: 30px;
+      background-image: linear-gradient(-225deg, #333 50%, #555 50%);
+      box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffb6b6; /* Light color for title */
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 14px;
+      color: #fff; /* White label text */
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      font-family: 'Abel', sans-serif;
+      font-size: 15px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      outline: none;
+      transition: all 0.2s linear;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 0 2px #fff, 0 0 10px #fff;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      height: 50px;
+      background: #fff;
+      color: #2575fc;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 0 8px #fff;
+      transition: 0.3s ease;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #2575fc; }
+      100% { box-shadow: 0 0 20px #2575fc; }
+    }
+
+    button:hover {
+      background: #B8F2E6;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      max-width: 600px;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .message-box h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+      color: #ffb6b6; /* Light color for message box title */
+    }
+
+    #messageList li {
+      background: rgba(255, 255, 255, 0.2);
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      list-style: none;
+      line-height: 1.5;
+    }
+
+    #messageList p {
+      margin-top: 6px;
+    }
+
+    .clear-btn {
+      background: transparent;
+      color: crimson;
+      border: 2px solid crimson;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin: 10px auto 0;
+      display: block;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .clear-btn:hover {
+      background: crimson;
+      color: white;
+    }
+
+    /* Cursor Dot */
+    .cursor-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: transform 0.1s ease-out;
+    }
+
+    @media screen and (max-width: 768px) {
+      .form-container {
+        padding: 25px;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      button {
+        font-size: 15px;
+        height: 45px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 30px 10px;
+      }
+      .form-container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      label {
+        font-size: 13px;
+      }
+      input, textarea {
+        font-size: 14px;
+        padding: 12px;
+      }
+      button {
+        font-size: 14px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor Dot -->
+  <div class="cursor-dot"></div>
+
+  <div class="form-container">
+    <h1>📬 Get in Touch</h1>
+    <form id="contactForm">
+      <label for="name">👤 Your Name</label>
+      <input type="text" id="name" placeholder="Full Name" required />
+
+      <label for="email">📧 Your Email</label>
+      <input type="email" id="email" placeholder="Enter your Email" required />
+
+      <label for="phone">📱 Your Phone</label>
+      <input type="tel" id="phone" placeholder="Enter Phone No" required pattern="[0-9]{10}" />
+
+      <label for="message">💬 Your Message</label>
+      <textarea id="message" placeholder="Write your message here..." rows="4" required></textarea>
+
+      <button type="submit">Submit ✨</button>
+    </form>
+  </div>
+
+  <div class="message-box">
+    <h2>📜 Submitted Messages</h2>
+    <ul id="messageList"></ul>
+    <button class="clear-btn" onclick="clearMessages()">🗑️ Clear All Messages</button>
+  </div>
+
+  <script>
+    function loadMessages() {
+      const messages = JSON.parse(localStorage.getItem("messages")) || [];
+      const messageList = document.getElementById("messageList");
+      messageList.innerHTML = "";
+
+      messages.forEach(({ name, email, phone, message }) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${name}</strong> (${email}) - ${phone}<p>${message}</p>`;
+        messageList.appendChild(li);
+      });
+    }
+
+    function clearMessages() {
+      if (confirm("Are you sure you want to clear all messages?")) {
+        localStorage.removeItem("messages");
+        loadMessages();
+      }
+    }
+
+    window.onload = loadMessages;
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !phone || !message) {
+        return alert("Please fill all fields.");
+      }
+
+      const newMessage = { name, email, phone, message };
+      const messages = JSON.parse(localStorage.getItem("messages")) || [];
+      messages.push(newMessage);
+      localStorage.setItem("messages", JSON.stringify(messages));
+
+      this.reset();
+      loadMessages();
+      alert("🎉 Message Submitted!");
+    });
+
+    const cursor = document.querySelector(".cursor-dot");
+    document.addEventListener("mousemove", e => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+  </script>
+</body>
+</html>
